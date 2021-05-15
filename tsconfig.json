@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "pretty": false,
+    "target": "es6",
+    "outDir": "lib",
+    "baseUrl": "src",
+    "declaration": true,
+    "paths": {},
+    "allowJs": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "tests", "lib"]
+}
