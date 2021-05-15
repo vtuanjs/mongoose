@@ -1,6 +1,6 @@
 {
   "name": "@vtjs/mongoose",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Mongoose",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prepublish": "npm run build",
+    "prepublish": "npm run test & npm run build",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'"
   },
   "keywords": [

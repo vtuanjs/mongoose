@@ -9,7 +9,7 @@ import {
   UpdateQuery
 } from 'mongoose';
 
-import { FindAllOption, FindAllResponse, IBaseRepository } from './definations';
+import { FindAllOption, FindAllResponse, IBaseRepository } from './definitions';
 
 export abstract class BaseRepository<T> implements IBaseRepository<T> {
   protected model: Model<T & Document>;

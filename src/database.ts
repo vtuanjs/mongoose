@@ -1,5 +1,5 @@
 import { connection, connect, Mongoose } from 'mongoose';
-import { IMongoConfig, ILogger, ISystemNotify } from './definations';
+import { IMongoConfig, ILogger, ISystemNotify } from './definitions';
 
 export { Schema, FilterQuery, CreateQuery, UpdateQuery, Document } from 'mongoose';
 
