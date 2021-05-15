@@ -1,1 +1,4 @@
-## CORE PROJECT
+## MONGOOSE
+
+### INSTALL
+npm install @vtjs/mongoose
