@@ -8,14 +8,22 @@ export class MongoDB {
   config: IMongoConfig;
   systemNotify: ISystemNotify;
 
-  constructor(param?: { logger?: ILogger; config?: IMongoConfig; systemNotify?: ISystemNotify }) {
-    this.logger = param?.logger || console;
+  constructor(
+    {
+      connectionString = 'mongodb://localhost:27017/example',
+      user = '',
+      password = ''
+    }: IMongoConfig,
+    logger: ILogger = console,
+    systemNotify?: ISystemNotify
+  ) {
+    this.logger = logger;
     this.config = {
-      connectionString: param?.config?.connectionString || 'mongodb://localhost:27017/example',
-      user: param?.config?.user || '',
-      password: param?.config?.password || ''
+      connectionString,
+      user,
+      password
     };
-    this.systemNotify = param?.systemNotify;
+    this.systemNotify = systemNotify;
     this.listen();
   }
 

@@ -29,7 +29,7 @@ const user = userData[0];
 let findUser: UserEntity = null;
 
 before((done) => {
-  const mongodb = new MongoDB();
+  const mongodb = new MongoDB({});
   mongodb
     .connect()
     .then(() => done())

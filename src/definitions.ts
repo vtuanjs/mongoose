@@ -1,7 +1,7 @@
 export interface IMongoConfig {
-  connectionString: string;
-  user: string;
-  password: string;
+  connectionString?: string;
+  user?: string;
+  password?: string;
 }
 
 export interface IBaseRepository<T> {
