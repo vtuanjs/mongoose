@@ -75,7 +75,7 @@ export abstract class BaseRepository<T> implements IBaseRepository<T> {
   }
 
   @Repository()
-  async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options: UpdateOptions): Promise<T> {
+  async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: UpdateOptions): Promise<T> {
     const entity = await this.model
       .findOneAndUpdate(cond as FilterQuery<T & Document>, doc as UpdateQuery<T & Document>, {
         new: true,
