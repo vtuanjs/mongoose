@@ -1,7 +1,8 @@
-import { connection, connect, Mongoose } from 'mongoose';
+import { connection, connect, Schema, Mongoose } from 'mongoose';
 import { IMongoConfig, ILogger, ISystemNotify } from './definitions';
 
 export { Schema, FilterQuery, CreateQuery, UpdateQuery, Document } from 'mongoose';
+export const Mixed = Schema.Types.Mixed;
 
 export class MongoDB {
   logger: ILogger;
