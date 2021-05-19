@@ -9,7 +9,7 @@ import {
   UpdateQuery
 } from 'mongoose';
 
-import { FindAllOption, FindAllResponse, IBaseRepository } from './definitions';
+import { FindAllOption, FindAllResponse, IBaseRepository, UpdateOptions } from './definitions';
 
 export abstract class BaseRepository<T> implements IBaseRepository<T> {
   protected model: Model<T & Document>;
@@ -75,10 +75,11 @@ export abstract class BaseRepository<T> implements IBaseRepository<T> {
   }
 
   @Repository()
-  async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>): Promise<T> {
+  async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options: UpdateOptions): Promise<T> {
     const entity = await this.model
       .findOneAndUpdate(cond as FilterQuery<T & Document>, doc as UpdateQuery<T & Document>, {
-        new: true
+        new: true,
+        ...options
       })
       .lean();
     return entity as T;

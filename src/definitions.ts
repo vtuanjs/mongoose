@@ -4,13 +4,18 @@ export interface IMongoConfig {
   password?: string;
 }
 
+export type UpdateOptions = {
+  new: boolean;
+  upsert: boolean;
+};
+
 export interface IBaseRepository<T> {
   create(entity: Partial<T>): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
 
   findOne(cond: Partial<T>): Promise<T>;
-  findOneAndUpdate(cond: Partial<T>, doc: Partial<T>): Promise<T>;
+  findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: UpdateOptions): Promise<T>;
   findMany(cond: Partial<T>): Promise<T[]>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
 }
