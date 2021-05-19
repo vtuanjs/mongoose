@@ -5,8 +5,8 @@ export interface IMongoConfig {
 }
 
 export type UpdateOptions = {
-  new: boolean;
-  upsert: boolean;
+  new?: boolean;
+  upsert?: boolean;
 };
 
 export interface IBaseRepository<T> {
