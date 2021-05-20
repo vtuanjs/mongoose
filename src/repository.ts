@@ -48,6 +48,8 @@ export abstract class BaseRepository<T> implements IBaseRepository<T> {
 
   @Repository(false)
   async create(entity: Partial<T>): Promise<T> {
+    delete (entity as any).id;
+
     const _entity = await this.model.create(entity as CreateQuery<T & Document>);
     const doc = _entity.toObject();
     return doc;
@@ -55,6 +57,8 @@ export abstract class BaseRepository<T> implements IBaseRepository<T> {
 
   @Repository()
   async updateById(id: string, doc: Partial<T>): Promise<boolean> {
+    delete (doc as any).id;
+
     const raw = await this.model.updateOne({ _id: id as any }, doc as UpdateQuery<T & Document>);
     if (raw.ok === 0) {
       throw new Error('Update failed');
@@ -76,6 +80,8 @@ export abstract class BaseRepository<T> implements IBaseRepository<T> {
 
   @Repository()
   async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: UpdateOptions): Promise<T> {
+    delete (doc as any).id;
+
     const entity = await this.model
       .findOneAndUpdate(cond as FilterQuery<T & Document>, doc as UpdateQuery<T & Document>, {
         new: true,
