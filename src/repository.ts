@@ -12,7 +12,7 @@ import {
 import { FindAllOption, FindAllResponse, IBaseRepository, UpdateOptions } from './definitions';
 
 export abstract class BaseRepository<T> implements IBaseRepository<T> {
-  protected model: Model<T & Document>;
+  model: Model<T & Document>;
 
   constructor(name: string, schema: Schema, collection: string) {
     this.model = model<T & Document>(name, schema, collection);
